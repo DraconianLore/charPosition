@@ -1,12 +1,19 @@
 function countLetters(toCount) {
-  var counting = toCount.split(" ").join("");
   var letterObject = {};
-  for (let letters of counting) {
-    if (letterObject[letters]) {
-      letterObject[letters] += 1;
-    }else {
-      letterObject[letters] = 1;
+  for (let i = 0; i < toCount.length; i++) {
+    if (toCount[i] != ' ') {
+      if (letterObject[toCount[i]]) {
+        letterObject[toCount[i]][0] += 1;
+        letterObject[toCount[i]][1].push(i);
+      }else {
+        letterObject[toCount[i]] = [];
+        letterObject[toCount[i]][0] = 1;
+        letterObject[toCount[i]][1] = [];
+        letterObject[toCount[i]][1].push(i);
+
+      }
     }
+
   }
   console.log(letterObject);
 
